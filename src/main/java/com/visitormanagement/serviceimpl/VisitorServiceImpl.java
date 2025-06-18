@@ -62,6 +62,7 @@ public class VisitorServiceImpl implements VisitorService {
 
     @Override
     public void deleteVisitor(Long id) {
+        getVisitorById(id);
         visitorRepository.deleteById(id);
     }
 

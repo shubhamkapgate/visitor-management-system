@@ -50,6 +50,7 @@ public class VisitorController {
     public ResponseEntity<String> delete(
             @PathVariable Long id
     ){
+        visitorService.deleteVisitor(id);
         return new ResponseEntity<>("Deleted Successfully", HttpStatus.ACCEPTED);
     }
 }

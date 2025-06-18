@@ -15,7 +15,8 @@ public class SecurityConfig {
         http.csrf().disable().cors().disable();
 
         http.authorizeHttpRequests()
-                .requestMatchers("/visitors/register", "/h2-console/**").permitAll()
+                .requestMatchers("/visitors/getallusers").authenticated()
+                .requestMatchers("/visitors/register", "/h2-console/**", "/visitors/{id}").permitAll()
                 .anyRequest().authenticated().and().httpBasic();
 
         return http.build();

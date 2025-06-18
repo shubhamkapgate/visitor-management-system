@@ -28,7 +28,7 @@ public class VisitorServiceImpl implements VisitorService {
 
     @Override
     public Visitor registerVisitor(VisitorDto visitorDto) {
-        if (visitorRepository.existsByEmail(visitorDto.getEmail()) || visitorRepository.existsByEmail(visitorDto.getContact())){
+        if (visitorRepository.existsByEmail(visitorDto.getEmail()) || visitorRepository.existsByContact(visitorDto.getContact())){
             throw new IllegalArgumentException("Email or contact already registered");
         }
         Visitor visitor = mapDtoToEntity(visitorDto);
